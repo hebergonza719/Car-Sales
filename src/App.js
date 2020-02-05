@@ -41,8 +41,10 @@ const App = () => {
     <Provider store={store}>
       <div className="boxes">
         <div className="box">
-          <Header car={state.car} />
-          <AddedFeatures car={state.car} />
+          {/* <Header car={state.car} /> */}
+          <Header />
+          {/* <AddedFeatures car={state.car} /> */}
+          <AddedFeatures />
         </div>
         <div className="box">
           <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
