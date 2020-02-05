@@ -1,3 +1,5 @@
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions";
+
 export const initialState = {
   additionalPrice: 0,
   car: {
@@ -17,6 +19,21 @@ export const initialState = {
 
 export const carReducer = (state = initialState, action) => {
   switch(action.type) {
+    case ADD_FEATURE:
+      return {
+        ...state,
+        car: {...state.car, features: [...state.car.features, action.payload]},
+        // how could I have spread below?
+        additionalPrice: state.additionalPrice + action.payload.price 
+      };
+    case REMOVE_FEATURE:
+      return {
+        ...state,
+        car: {...state.car, features: state.car.features.filter((feature) => {
+          return feature.id !== action.payload.id;
+        })},
+        additionalPrice: state.additionalPrice - action.payload.price
+      };
     default:
       return state;
   }
