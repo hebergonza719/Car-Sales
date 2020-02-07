@@ -22,7 +22,6 @@ const AddedFeature = props => {
 
 const mapStateToProps = state => {
   return {
-
   };
 };
 
