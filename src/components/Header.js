@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Header = props => {
   return (
@@ -12,4 +13,13 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    car: state.car
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {} // this has no action, so it returns default switch/case from reducers/index.js
+)(Header);
